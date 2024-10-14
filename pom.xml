@@ -21,10 +21,10 @@
 		<cucumberjava.version>7.2.3</cucumberjava.version>
 		<cucumberjunit.version>7.2.3</cucumberjunit.version>
 		<commons.version>2.11.0</commons.version>
-		<pdf.version>1.8.1</pdf.version>
 		<screenshot.version>1.5.4</screenshot.version>
-		<junitplatform.version>1.8.1</junitplatform.version>
 		<junit.version>5.8.2</junit.version>
+		<extentreports.version>5.1.1</extentreports.version>
+		<extentreports-cucumber7-adapter.version>1.14.0</extentreports-cucumber7-adapter.version>
 	</properties>
 
 	<dependencies>
@@ -50,11 +50,6 @@
 			<version>${commons.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.pdfbox</groupId>
-			<artifactId>pdfbox</artifactId>
-			<version>${pdf.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>ru.yandex.qatools.ashot</groupId>
 			<artifactId>ashot</artifactId>
 			<version>${screenshot.version}</version>
@@ -64,6 +59,16 @@
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>tech.grasshopper</groupId>
+			<artifactId>extentreports-cucumber7-adapter</artifactId>
+			<version>${extentreports-cucumber7-adapter.version}</version>
 		</dependency>
 
 
