@@ -10,7 +10,6 @@ public class Setup {
 	@Before
 	public void setWebDriver() {
 
-		System.setProperty("webdriver.http.factory", "jdk-http-client");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 

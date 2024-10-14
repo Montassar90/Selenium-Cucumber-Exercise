@@ -23,7 +23,6 @@
 		<commons.version>2.11.0</commons.version>
 		<pdf.version>1.8.1</pdf.version>
 		<screenshot.version>1.5.4</screenshot.version>
-		<seleniumclient.version>4.13.0</seleniumclient.version>
 		<junitplatform.version>1.8.1</junitplatform.version>
 		<junit.version>5.8.2</junit.version>
 	</properties>
@@ -61,16 +60,13 @@
 			<version>${screenshot.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-http-jdk-client</artifactId>
-			<version>${seleniumclient.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
+
 	</dependencies>
 
 	<build>
