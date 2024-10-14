@@ -30,8 +30,8 @@ public class RegistrationStepDefinition {
     }
 
     // Step definition for clicking on the "Signup" link
-    @Given("I click on Signup link")
-    public void iClickOnSignupLink() {
+    @Given("I click on Signup\\/Login link")
+    public void iClickOnSignupLoginLink() {
         registrationPageObject.navigateToSignup();
     }
 
