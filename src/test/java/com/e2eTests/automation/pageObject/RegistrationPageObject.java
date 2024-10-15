@@ -92,6 +92,10 @@ public class RegistrationPageObject {
 	@FindBy(how = How.XPATH, using = "//h2[@class='title text-center']/b")
 	private WebElement message;
 
+	// Locates the error message by its XPath
+	@FindBy(how = How.XPATH, using = "//div[@class='signup-form']//p")
+	private WebElement errorMessage;
+
 	// Handles reading configuration properties
 	public ConfigFileReader configFileReader;
 
@@ -177,6 +181,10 @@ public class RegistrationPageObject {
 	// Returns the confirmation message element (e.g., to verify account creation)
 	public WebElement getMessage() {
 		return message;
+	}
+
+	public WebElement getErrorMessage() {
+		return errorMessage;
 	}
 
 }
