@@ -1,8 +1,7 @@
 package com.e2eTests.automation.stepDefinition;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.e2eTests.automation.pageObject.RegistrationPageObject;
+import com.e2eTests.automation.utils.BrowserUtils;
 import com.e2eTests.automation.utils.ConfigFileReader;
 
 import io.cucumber.java.en.Given;
@@ -29,14 +28,11 @@ public class RegistrationStepDefinition {
 		registrationPageObject.connectToApp();
 	}
 
-
 	// Step definition for clicking on the "Signup" link
 	@Given("I click on Signup\\/Login link")
 	public void iClickOnSignupLoginLink() {
 		registrationPageObject.navigateToSignup();
 	}
-
-
 
 	// Step definition for entering the name and email in the signup form
 	@When("I enter name and email address")
@@ -70,14 +66,16 @@ public class RegistrationStepDefinition {
 	// Step definition for verifying that the confirmation message is displayed
 	@Then("Confirmation message should be displayed")
 	public void confirmationMessageShouldBeDisplayed() {
-		// Verifies that the actual confirmation message matches the expected message from the configuration file
-		assertEquals(configFileReader.getProperties("SignupConfirmMsg"), registrationPageObject.getMessage().getText());
+		// Verifies that the actual confirmation message matches the expected message
+		// from the configuration file
+		BrowserUtils.handleAsserts("SignupConfirmMsg", registrationPageObject.getMessage().getText());
 	}
-	
-	// Verifies that the actual error message matches the expected message from the configuration file
+
+	// Verifies that the actual error message matches the expected message from the
+	// configuration file
 	@Then("An error message should be displayed and i am not able to signup")
 	public void anErrorMessageShouldBeDisplayedAndIAmNotAbleToSignup() {
-		assertEquals(configFileReader.getProperties("SignupErrorMsg"), registrationPageObject.getErrorMessage().getText());
 
+		BrowserUtils.handleAsserts("SignupErrorMsg", registrationPageObject.getErrorMessage().getText());
 	}
 }

@@ -13,7 +13,7 @@ import com.e2eTests.automation.utils.Setup;
 public class RegistrationPageObject {
 
 	// Locates the "Sign Up" menu item using its XPath
-	@FindBy(how = How.XPATH, using = "//ul[@class='nav navbar-nav']/li[4]/a")
+	@FindBy(how = How.XPATH, using = "//ul[@class='nav navbar-nav']/li/a[text()=' Signup / Login']")
 	private static WebElement signupMenu;
 
 	// Locates the "Name" input field by its name attribute
@@ -21,11 +21,11 @@ public class RegistrationPageObject {
 	private WebElement nameInput;
 
 	// Locates the "Email" input field using its XPath
-	@FindBy(how = How.XPATH, using = "//div[@class='signup-form']/form/input[3]")
+	@FindBy(how = How.XPATH, using = "//input[@data-qa='signup-email']")
 	private WebElement emailInput;
 
 	// Locates the "Sign Up" button using XPath
-	@FindBy(how = How.XPATH, using = "//button[contains(text(), 'Signup')]")
+	@FindBy(how = How.XPATH, using = "//button[@data-qa='signup-button']")
 	private WebElement signupButton;
 
 	// Locates the "Title" (gender) radio button by its ID
@@ -85,7 +85,7 @@ public class RegistrationPageObject {
 	private WebElement mobileNumber;
 
 	// Locates the "Create Account" button by its XPath
-	@FindBy(how = How.XPATH, using = "//button[contains(text(), 'Create Account')]")
+	@FindBy(how = How.XPATH, using = "//button[@data-qa='create-account']")
 	private WebElement createButton;
 
 	// Locates the confirmation message (e.g., "Account Created") by its XPath
@@ -183,6 +183,7 @@ public class RegistrationPageObject {
 		return message;
 	}
 
+	// Returns the error message element
 	public WebElement getErrorMessage() {
 		return errorMessage;
 	}

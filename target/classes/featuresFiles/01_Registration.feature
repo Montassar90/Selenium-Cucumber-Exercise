@@ -1,5 +1,5 @@
 @Signup
-Feature: RegistrationFeature
+Feature: As a user I want to test the registration page of the application 
 
   Background: 
     Given I navigate to the automationexercise application
@@ -8,7 +8,7 @@ Feature: RegistrationFeature
     And I click on Signup button
 
   @Positive-scenario
-  Scenario: As a new user i want to signup to the application
+  Scenario: As a user i want to signup to the application
     And I fill the Signup form
     And I click the Create Account button
     Then Confirmation message should be displayed
