@@ -1,5 +1,5 @@
 @Login
-Feature: As a user i want to login to the application
+Feature: As a user i want to test the login functionality
 
   Background: 
     Given I navigate to the automationexercise application

@@ -20,11 +20,10 @@ public class LoginPageObject {
 	// Locates the "Login" button using its XPath attribute
 	@FindBy(how = How.XPATH, using = "//button[@data-qa='login-button']")
 	private WebElement loginButton;
-	
-	// Locates the confirmation message by its XPath
-		@FindBy(how = How.XPATH, using = "//ul[@class='nav navbar-nav']/li[10]//b")
-		private WebElement loginMsg;
 
+	// Locates the confirmation message by its XPath
+	@FindBy(how = How.XPATH, using = "//ul[@class='nav navbar-nav']/li/a[text()=' Logged in as ']/b")
+	private WebElement loginMsg;
 
 	// Locates the error message by its XPath
 	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//p")
@@ -59,7 +58,7 @@ public class LoginPageObject {
 		// input field
 		pwInput.sendKeys(configFileReader.getProperties("invalid_pw"));
 	}
-	
+
 	// Clicks the login button to submit the form
 	public void submitForm() {
 		loginButton.click();
@@ -70,9 +69,9 @@ public class LoginPageObject {
 		return errorMsg;
 	}
 
+	// Returns the succes message element
 	public WebElement getLoginMsg() {
 		return loginMsg;
 	}
-	
-	
+
 }
