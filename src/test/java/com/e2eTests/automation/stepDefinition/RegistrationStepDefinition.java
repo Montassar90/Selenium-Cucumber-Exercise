@@ -13,7 +13,7 @@ import io.cucumber.java.en.When;
 
 // This class defines the step definitions for the registration process using Cucumber
 public class RegistrationStepDefinition {
-
+	// Logger instance
 	private static final Logger logger = LoggerHelper.getLogger(RegistrationStepDefinition.class);
 
 	// Object that models the registration page (Page Object Model)
@@ -60,16 +60,17 @@ public class RegistrationStepDefinition {
 	// date, country, etc.)
 	@When("I fill the Signup form")
 	public void iFillTheSignupForm() {
-		 logger.info("Filling the signup form.");
-		 logger.info("Selecting title.");
+		logger.info("Filling the signup form.");
+		logger.info("Selecting title.");
 		registrationPageObject.selectTitle();
-        logger.info("Filling the form with personal information.");
+		logger.info("Filling the form with personal information.");
 		registrationPageObject.fillForm();
-        logger.info("Setting birth date.");
-		registrationPageObject.setBirthDate();
-        logger.info("Selecting country.");
-		registrationPageObject.selectCountry();
-        logger.info("Signup form filled successfully.");
+		logger.info("Setting birth date.");
+		registrationPageObject.setBirthDate(configFileReader.getProperties("birthDay"),
+				configFileReader.getProperties("birthMonth"), configFileReader.getProperties("birthYear"));
+		logger.info("Selecting country.");
+		registrationPageObject.selectCountry(configFileReader.getProperties("country"));
+		logger.info("Signup form filled successfully.");
 
 	}
 
