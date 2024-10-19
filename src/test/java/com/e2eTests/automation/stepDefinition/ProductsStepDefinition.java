@@ -75,4 +75,29 @@ public class ProductsStepDefinition {
 			logger.error("Product details are not visible");
 		}
 	}
+
+	// Call the method to scroll down to the bottom of the products page
+	@When("I Scroll to the bottom end of the products page")
+	public void iScrollToTheBottomEndOfTheProductsPage() {
+		logger.info("Scrolling down to the bottom of the products page.");
+		productsPageObject.scrollDownPage();
+        logger.info("Successfully scrolled to the bottom.");
+	}
+
+	// Call the method to click on the scroll up button (located at the bottom right of the page)
+	@When("I Click on the arrow button at the bottom right side of the page")
+	public void iClickOnTheArrowButtonAtTheBottomRightSideOfThePage() {
+        logger.info("Clicking on the scroll-up button at the bottom right side of the page.");
+		productsPageObject.clickScrollUpBtn();
+        logger.info("Scroll-up button clicked.");
+	}
+
+	// Assert that the products link is displayed, indicating that the page has been scrolled back to the top
+	@Then("The page should be scrolled up to the top")
+	public void thePageShouldBeScrolledUpToTheTop() {
+        logger.info("Verifying that the page has been scrolled back to the top.");
+		assertTrue(productsPageObject.getProductsLink().isDisplayed());
+        logger.info("Page successfully scrolled to the top, products link is displayed.");
+	}
+
 }
