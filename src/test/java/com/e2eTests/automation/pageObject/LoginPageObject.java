@@ -9,7 +9,7 @@ import com.e2eTests.automation.utils.Setup;
 public class LoginPageObject {
 	
 	// Locates the "Email" input field using its XPath attribute
-	@FindBy(how = How.XPATH, using = "//input[@data-qa='login-email']")
+	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//input[@type='email']")
 	private WebElement emailInput;
 
 	// Locates the "Password" input field using its 'name' attribute
@@ -17,15 +17,15 @@ public class LoginPageObject {
 	private WebElement pwInput;
 
 	// Locates the "Login" button using its XPath attribute
-	@FindBy(how = How.XPATH, using = "//button[@data-qa='login-button']")
+	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//button[@type='submit']")
 	private WebElement loginButton;
 
 	// Locates the confirmation message by its XPath
-	@FindBy(how = How.XPATH, using = "//ul[@class='nav navbar-nav']/li/a[text()=' Logged in as ']/b")
+	@FindBy(how = How.XPATH, using = "//div[@class='shop-menu pull-right']//a[i[@class='fa fa-user']]")
 	private WebElement loginMsg;
 
 	// Locates the error message by its XPath
-	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//p")
+	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//p[text()='Your email or password is incorrect!']")
 	private WebElement errorMsg;
 
 	// Object to read configuration properties like email and password
