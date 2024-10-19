@@ -22,7 +22,7 @@ chromedriver
 geckodriver
 webdriver.log
 .env
-*.properties
+ConfigFile.properties
 /test-output/
 *.json
 

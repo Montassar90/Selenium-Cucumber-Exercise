@@ -11,7 +11,7 @@ import com.e2eTests.automation.utils.Setup;
 public class ContactUsPageObject {
 
 	// Locating the "Contact Us" link using XPath
-	@FindBy(how = How.XPATH, using = "//ul[@class='nav navbar-nav']/li/a[text()=' Contact us']")
+	@FindBy(how = How.XPATH, using = "//div[@class='shop-menu pull-right']//a[@href='/contact_us' and contains(., 'Contact us')]")
 	private WebElement contactLink;
 
 	// Locating the "Name" input field

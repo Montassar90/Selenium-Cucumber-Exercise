@@ -44,7 +44,7 @@ public class LoginStepDefinition {
 	public void iShouldBeRedirectedToHomePageAndMyUsernameIsVisibleInTheTop() {
 		// Using BrowserUtils to assert the presence of the username in the home page
 		logger.info("Asserting visibility of username on the home page");
-		BrowserUtils.handleAsserts("name", loginPageObject.getLoginMsg().getText());
+		BrowserUtils.handleAsserts("loginConfirmMsg", loginPageObject.getLoginMsg().getText());
 	}
 
 	// Step definition for entering invalid login credentials

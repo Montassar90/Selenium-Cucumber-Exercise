@@ -12,7 +12,7 @@ import com.e2eTests.automation.utils.Setup;
 public class RegistrationPageObject {
 
 	// Locates the "Sign Up" menu item using its XPath
-	@FindBy(how = How.XPATH, using = "//ul[@class='nav navbar-nav']/li/a[text()=' Signup / Login']")
+	@FindBy(how = How.XPATH, using = "//div[@class='shop-menu pull-right']//a[@href='/login' and contains(., 'Signup / Login')]")
 	private static WebElement signupMenu;
 
 	// Locates the "Name" input field by its name attribute
@@ -20,11 +20,11 @@ public class RegistrationPageObject {
 	private WebElement nameInput;
 
 	// Locates the "Email" input field using its XPath
-	@FindBy(how = How.XPATH, using = "//input[@data-qa='signup-email']")
+	@FindBy(how = How.XPATH, using = "//div[@class='signup-form']//input[@type='email']")
 	private WebElement emailInput;
 
 	// Locates the "Sign Up" button using XPath
-	@FindBy(how = How.XPATH, using = "//button[@data-qa='signup-button']")
+	@FindBy(how = How.XPATH, using = "//div[@class='signup-form']//button[@type='submit']")
 	private WebElement signupButton;
 
 	// Locates the "Title" (gender) radio button by its ID
@@ -84,15 +84,15 @@ public class RegistrationPageObject {
 	private WebElement mobileNumber;
 
 	// Locates the "Create Account" button by its XPath
-	@FindBy(how = How.XPATH, using = "//button[@data-qa='create-account']")
+	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//button[@type='submit']")
 	private WebElement createButton;
 
 	// Locates the confirmation message (e.g., "Account Created") by its XPath
-	@FindBy(how = How.XPATH, using = "//h2[@class='title text-center']/b")
+	@FindBy(how = How.XPATH, using = "//section[@id='form']//h2[@class='title text-center' and @data-qa='account-created']")
 	private WebElement message;
 
 	// Locates the error message by its XPath
-	@FindBy(how = How.XPATH, using = "//div[@class='signup-form']//p")
+	@FindBy(how = How.XPATH, using = "//div[@class='signup-form']//p[text()='Email Address already exist!']")
 	private WebElement errorMessage;
 
 	// Handles reading configuration properties
