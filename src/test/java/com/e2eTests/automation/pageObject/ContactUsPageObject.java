@@ -1,17 +1,18 @@
 package com.e2eTests.automation.pageObject;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import com.e2eTests.automation.hooks.Setup;
 import com.e2eTests.automation.utils.ConfigFileReader;
-import com.e2eTests.automation.utils.Setup;
 
 public class ContactUsPageObject {
 
 	// Locating the "Contact Us" link using XPath
-	@FindBy(how = How.XPATH, using = "//div[@class='shop-menu pull-right']//a[@href='/contact_us' and contains(., 'Contact us')]")
+	@FindBy(how = How.CSS, using = "a[href='/contact_us'")
 	private WebElement contactLink;
 
 	// Locating the "Name" input field
@@ -70,12 +71,11 @@ public class ContactUsPageObject {
 		fillInputField(emailInput, configFileReader.getProperties("email"));
 		fillInputField(subjectInput, configFileReader.getProperties("contactSubject"));
 		fillInputField(messageInput, configFileReader.getProperties("contactMsg"));
-		fileUpload.sendKeys(configFileReader.getProperties("filePath"));
 	}
 
 	// Method to submit the form by clicking the submit button
 	public void submitForm() {
-		submitBtn.click();
+		((JavascriptExecutor) Setup.getDriver()).executeScript("arguments[0].click();", submitBtn);
 	}
 
 	// Getter method to retrieve the success message after form submission

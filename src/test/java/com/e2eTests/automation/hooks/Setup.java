@@ -1,8 +1,9 @@
-package com.e2eTests.automation.utils;
+package com.e2eTests.automation.hooks;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import com.e2eTests.automation.utils.LoggerHelper;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
