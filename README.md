@@ -26,13 +26,28 @@ This project automates various user flows of the e-commerce platform **Automatio
 ## 📂 Project Structure
 
 ```
-Selenium-Cucumber-Exercice/
-│-- src/
-│   ├── spec/features/featuresFiles      # Contains the .feature files written in Gherkin language.
-│   ├── test/java                        # Contains step definitions and test classes.
-│   ├── test/resources                   # Contains Extent Report and log4j configuration.
-│   ├── configs/                          # Contains configFile.properties (not provided, you must create your own).
-│-- pom.xml                               # Project Object Model file for Maven dependency management.
+Selenium-Cucumber-Exercise
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   └── resources
+│   └── test
+│       ├── java
+│       │   └── com.e2eTests.automation
+│       │       ├── hooks                  # Contains hooks to initialize and teardown
+│       │       ├── pageObject             # Contains pages objects classes
+│       │       ├── stepDefinition         # Contains step definitions
+│       │       ├── utils                  # Contains utilitie classes
+│       │       └── RunWebSuitTest.java
+│       └── resources
+│           ├── chaintest.properties       # Contains Chaintest configuration
+│           ├── log4j2.properties          # Contains logger configuration
+│           ├── configs                    # Contains config files
+│           └── features                   # Contains the .feature files written in Gherkin language.
+│
+└── pom.xml                                # Project Object Model file for Maven dependency management.
+
 ```
 
 ---
@@ -64,13 +79,13 @@ To run the tests using Maven, execute the following command:
 mvn test
 ```
 
-Alternatively, you can run the tests using your preferred **IDE** (such as **IntelliJ** or **Eclipse**) by selecting the **TestRunner** class or executing individual **feature files**.
+Alternatively, you can run the tests using your preferred **IDE** (such as **IntelliJ** or **Eclipse**) by selecting the **RunWebSuitTest** class or executing individual **feature files**.
 
 ---
 
 ## 📊 Test Reporting
 
-The project generates test reports using **Extent Report**. After running the tests, the reports can be found in the **/ExtentReports** directory.
+The project generates test reports using **ChainTest**. After running the tests, the reports can be found in the **/chaintest** directory.
 
 ---
 

@@ -1,8 +1,7 @@
-package com.e2eTests.automation.utils;
+package com.e2eTests.automation.hooks;
 
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import com.e2eTests.automation.utils.LoggerHelper;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 
@@ -12,7 +11,6 @@ public class TearDown {
 	// This method is executed after each test scenario due to the @After annotation
 	@After
 	public void quitDriver(Scenario scenario) {
-
 
 		// Log the result of the scenario (pass/fail)
 		if (scenario.isFailed()) {

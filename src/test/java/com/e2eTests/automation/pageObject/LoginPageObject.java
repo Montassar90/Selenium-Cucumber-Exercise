@@ -4,12 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import com.e2eTests.automation.utils.Setup;
+
+import com.e2eTests.automation.hooks.Setup;
 
 public class LoginPageObject {
 	
 	// Locates the "Email" input field using its XPath attribute
-	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//input[@type='email']")
+	@FindBy(how = How.CSS, using = "input[data-qa='login-email']")
 	private WebElement emailInput;
 
 	// Locates the "Password" input field using its 'name' attribute
@@ -17,15 +18,15 @@ public class LoginPageObject {
 	private WebElement pwInput;
 
 	// Locates the "Login" button using its XPath attribute
-	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//button[@type='submit']")
+	@FindBy(how = How.CSS, using = "button[data-qa='login-button']")
 	private WebElement loginButton;
 
 	// Locates the confirmation message by its XPath
-	@FindBy(how = How.XPATH, using = "//div[@class='shop-menu pull-right']//a[i[@class='fa fa-user']]")
+	@FindBy(how = How.CSS, using = ".nav.navbar-nav li:last-of-type a")
 	private WebElement loginMsg;
 
 	// Locates the error message by its XPath
-	@FindBy(how = How.XPATH, using = "//div[@class='login-form']//p[text()='Your email or password is incorrect!']")
+	@FindBy(how = How.CSS, using = ".login-form p")
 	private WebElement errorMsg;
 
 	// Object to read configuration properties like email and password
