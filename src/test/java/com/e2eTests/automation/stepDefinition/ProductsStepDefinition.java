@@ -1,12 +1,11 @@
 package com.e2eTests.automation.stepDefinition;
 
-import static org.junit.Assert.assertTrue; // Importing assertion to validate conditions in tests
-import java.util.List; // Importing List to handle collections of web elements
-import org.openqa.selenium.WebElement; // Importing WebElement for interacting with elements on a webpage
-import com.e2eTests.automation.pageObject.ProductsPageObject; // Importing the page object class for Products
-import io.cucumber.java.en.Given; // Importing Cucumber annotation for the "Given" step
-import io.cucumber.java.en.Then; // Importing Cucumber annotation for the "Then" step
-import io.cucumber.java.en.When; // Importing Cucumber annotation for the "When" step
+import static org.junit.Assert.assertTrue; 
+import java.util.List; 
+import org.openqa.selenium.WebElement; 
+import com.e2eTests.automation.pageObject.ProductsPageObject;
+import io.cucumber.java.en.*;
+
 
 public class ProductsStepDefinition {
 

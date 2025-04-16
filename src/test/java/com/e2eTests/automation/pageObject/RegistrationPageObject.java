@@ -1,32 +1,37 @@
 package com.e2eTests.automation.pageObject;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import com.e2eTests.automation.hooks.Setup;
 import com.e2eTests.automation.utils.ConfigFileReader;
+import lombok.Getter;
 
+@Getter
 // This class models the page object for the registration form
 public class RegistrationPageObject {
 
-	// Locates the "Sign Up" menu item using its XPath
+	// Locates the "Sign Up" menu item using its CSS selector
+    @CacheLookup
 	@FindBy(how = How.CSS, using = "a[href='/login']")
 	private  WebElement signupMenu;
 
 	// Locates the "Name" input field by its name attribute
+    @CacheLookup
 	@FindBy(how = How.NAME, using = "name")
 	private WebElement nameInput;
 
-	// Locates the "Email" input field using its XPath
+	// Locates the "Email" input field using its CSS selector
+    @CacheLookup
 	@FindBy(how = How.CSS, using = "input[data-qa='signup-email']")
 	private WebElement emailInput;
 
-	// Locates the "Sign Up" button using XPath
+	// Locates the "Sign Up" button using CSS selector
+    @CacheLookup
 	@FindBy(how = How.CSS, using = "button[data-qa='signup-button']")
 	private WebElement signupButton;
 
@@ -86,33 +91,31 @@ public class RegistrationPageObject {
 	@FindBy(how = How.ID, using = "mobile_number")
 	private WebElement mobileNumber;
 
-	// Locates the "Create Account" button by its XPath
+	// Locates the "Create Account" button by its CSS selector
 	@FindBy(how = How.CSS, using = "button[data-qa='create-account']")
 	private WebElement createButton;
 
-	// Locates the confirmation message (e.g., "Account Created") by its XPath
+	// Locates the confirmation message (e.g., "Account Created") by its CSS selector
 	@FindBy(how = How.CSS, using = "h2[data-qa='account-created']")
 	private WebElement confirmMsg;
 
-	// Locates the error message by its XPath
+	// Locates the error message by its CSS selector
 	@FindBy(how = How.CSS, using = ".signup-form p")
 	private WebElement errorMessage;
 
 	// Handles reading configuration properties
-	public ConfigFileReader configFileReader;
-	private Setup setup;
+	private ConfigFileReader configFileReader;
 
 
 	// Constructor: initializes the web elements and the config file reader
 	public RegistrationPageObject() {
-		setup = new Setup();
-		PageFactory.initElements(setup.getDriver(), this);
+		PageFactory.initElements(Setup.getDriver(), this);
 		configFileReader = new ConfigFileReader();
 	}
 
 	// Opens the application by fetching the URL from the configuration file
 	public void connectToApp() {
-		setup.getDriver().get(configFileReader.getProperties("baseUrl"));
+		Setup.getDriver().get(configFileReader.getProperties("baseUrl"));
 	}
 
 	// Navigates to the signup page by clicking on the signup menu
@@ -181,17 +184,7 @@ public class RegistrationPageObject {
 
 	// Clicks the "Create Account" button to submit the form
 	public void createAccount() {
-     ((JavascriptExecutor) setup.getDriver()).executeScript("arguments[0].click();", createButton);
-	}
-
-	// Returns the confirmation message element (e.g., to verify account creation)
-	public WebElement getConfirmMsg() {
-		return confirmMsg;
-	}
-
-	// Returns the error message element
-	public WebElement getErrorMessage() {
-		return errorMessage;
+     ((JavascriptExecutor) Setup.getDriver()).executeScript("arguments[0].click();", createButton);
 	}
 
 }

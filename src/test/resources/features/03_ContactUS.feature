@@ -1,5 +1,5 @@
 @ContactUs
-Feature: As a user i want to test the Contact Us functionality
+Feature: As a user i want to be able to use the Contact Us functionality
 
   Scenario: I send a correctly filled Contact Us form
     Given I navigate to the automationexercise application

@@ -5,13 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 import com.e2eTests.automation.hooks.Setup;
 import com.e2eTests.automation.utils.ConfigFileReader;
+import lombok.Getter;
 
+@Getter
 public class ContactUsPageObject {
 
-	// Locating the "Contact Us" link using XPath
+	// Locating the "Contact Us" link using CSS selector
 	@FindBy(how = How.CSS, using = "a[href='/contact_us'")
 	private WebElement contactLink;
 
@@ -44,7 +45,7 @@ public class ContactUsPageObject {
 	private WebElement successMsg;
 
 	// ConfigFileReader object to read data from configuration files
-	public ConfigFileReader configFileReader;
+	private ConfigFileReader configFileReader;
 
 	// Constructor to initialize the WebElements and ConfigFileReader
 	public ContactUsPageObject() {
@@ -64,22 +65,13 @@ public class ContactUsPageObject {
 		field.sendKeys(value);
 	}
 
-	// Method to fill out the contact form using values from the config file
-	public void fillForm() {
-		// Filling name, email, subject, message, and file upload
-		fillInputField(nameInput, configFileReader.getProperties("name"));
-		fillInputField(emailInput, configFileReader.getProperties("email"));
-		fillInputField(subjectInput, configFileReader.getProperties("contactSubject"));
-		fillInputField(messageInput, configFileReader.getProperties("contactMsg"));
-	}
-
 	// Method to submit the form by clicking the submit button
 	public void submitForm() {
 		((JavascriptExecutor) Setup.getDriver()).executeScript("arguments[0].click();", submitBtn);
 	}
-
+/*
 	// Getter method to retrieve the success message after form submission
 	public WebElement getSuccessMsg() {
 		return successMsg;
-	}
+	}*/
 }
