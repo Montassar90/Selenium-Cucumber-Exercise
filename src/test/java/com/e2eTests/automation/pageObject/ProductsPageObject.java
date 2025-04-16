@@ -2,15 +2,15 @@ package com.e2eTests.automation.pageObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 import com.e2eTests.automation.hooks.Setup;
+import lombok.Getter;
 
+@Getter
 public class ProductsPageObject {
 
 	// Locator for the Products link in the navigation bar
@@ -44,7 +44,7 @@ public class ProductsPageObject {
 	@FindBy(how = How.CSS, using = ".product-information :nth-child(6)")
 	private WebElement productAvailability;
 
-	// Locator for the product condition (e.g., new or used) in the product details
+	// Locator for the product condition in the product details
 	// page
 	@FindBy(how = How.CSS, using = ".product-information :nth-child(7)")
 	private WebElement productCondition;
@@ -55,8 +55,6 @@ public class ProductsPageObject {
 
 	// Constructor: Initializes the web elements on the page using Selenium's
 	// PageFactory
-	
-
 	public ProductsPageObject() {
 		PageFactory.initElements(Setup.getDriver(), this);
 	}
@@ -78,22 +76,11 @@ public class ProductsPageObject {
 		((JavascriptExecutor) Setup.getDriver()).executeScript("arguments[0].click();", scrollUpBtn);
 	}
 
-	// Return the WebElement representing the products link (assumes productsLink is
-	// defined elsewhere in the class)
-	public WebElement getProductsLink() {
-		return productsLink;
-	}
-
 	// Method to navigate to the product details of the specific product by clicking
 	// the 'View Product' link
 	public void navigateToProductDetails() {
 		((JavascriptExecutor) Setup.getDriver()).executeScript("arguments[0].scrollIntoView(true);", viewProductLink);
 		viewProductLink.click();
-	}
-
-	// Method to retrieve the list of products displayed on the page
-	public List<WebElement> getProductsList() {
-		return productsList;
 	}
 
 	// Method to retrieve the details of the currently viewed product, including its

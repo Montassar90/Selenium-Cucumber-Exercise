@@ -3,9 +3,8 @@ package com.e2eTests.automation.stepDefinition;
 import com.e2eTests.automation.pageObject.RegistrationPageObject;
 import com.e2eTests.automation.utils.SeleniumUtils;
 import com.e2eTests.automation.utils.ConfigFileReader;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
+
 
 // This class defines the step definitions for the registration process using Cucumber
 public class RegistrationStepDefinition {

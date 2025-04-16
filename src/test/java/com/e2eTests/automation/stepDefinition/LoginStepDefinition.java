@@ -3,8 +3,7 @@ package com.e2eTests.automation.stepDefinition;
 import com.e2eTests.automation.pageObject.LoginPageObject;
 import com.e2eTests.automation.utils.SeleniumUtils;
 import com.e2eTests.automation.utils.ConfigFileReader;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class LoginStepDefinition {
 	public LoginPageObject loginPageObject;
@@ -21,7 +20,7 @@ public class LoginStepDefinition {
 	// Step definition for entering valid login credentials
 	@When("I enter a valid email address and password")
 	public void iEnterEmailAddressAndPassword() {
-		loginPageObject.performValidLogin(configFileReader.getProperties("email"),
+		loginPageObject.performLogin(configFileReader.getProperties("email"),
 				configFileReader.getProperties("password")); // Method to handle valid login input
 	}
 
@@ -41,7 +40,7 @@ public class LoginStepDefinition {
 	// Step definition for entering invalid login credentials
 	@When("I enter invalid email address or password")
 	public void iEnterInvalidEmailAddressAndPassword() {
-		loginPageObject.performInvalidLogin(configFileReader.getProperties("email"),
+		loginPageObject.performLogin(configFileReader.getProperties("email"),
 				configFileReader.getProperties("invalidPw")); // Method to handle invalid login input
 	}
 

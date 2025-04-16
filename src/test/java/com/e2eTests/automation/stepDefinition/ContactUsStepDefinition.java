@@ -3,13 +3,11 @@ package com.e2eTests.automation.stepDefinition;
 import com.e2eTests.automation.pageObject.ContactUsPageObject;
 import com.e2eTests.automation.utils.SeleniumUtils;
 import com.e2eTests.automation.utils.ConfigFileReader;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class ContactUsStepDefinition {
 // Declaring page object and configuration file reader instances
-    public ContactUsPageObject contactUsPageObject;
+    private ContactUsPageObject contactUsPageObject;
     public ConfigFileReader configFileReader;
     public SeleniumUtils seleniumUtils;
 
@@ -29,7 +27,11 @@ public class ContactUsStepDefinition {
     // Step definition for filling out the contact form
     @When("I fill the form")
     public void iFillTheForm() {
-        contactUsPageObject.fillForm();
+        contactUsPageObject.fillInputField(contactUsPageObject.getNameInput(), configFileReader.getProperties("name"));
+        contactUsPageObject.fillInputField(contactUsPageObject.getEmailInput(), configFileReader.getProperties("email"));
+        contactUsPageObject.fillInputField(contactUsPageObject.getSubjectInput(), configFileReader.getProperties("contactSubject"));
+        contactUsPageObject.fillInputField(contactUsPageObject.getMessageInput(), configFileReader.getProperties("contactMsg"));
+
     }
 
     // Step definition for submitting the form
