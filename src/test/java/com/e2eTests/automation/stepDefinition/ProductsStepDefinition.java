@@ -1,8 +1,6 @@
 package com.e2eTests.automation.stepDefinition;
 
 import static org.junit.Assert.assertTrue; 
-import java.util.List; 
-import org.openqa.selenium.WebElement; 
 import com.e2eTests.automation.pageObject.ProductsPageObject;
 import io.cucumber.java.en.*;
 
@@ -41,12 +39,13 @@ public class ProductsStepDefinition {
 	// Step definition to verify product details visibility on the product page
 	@Then("I should be redirected to the product page and the product details are visible")
 	public void iShouldBeRedirectedToTheProductPageAndTheProductDetailsAreVisible() {
-		// Get the list of product details elements
-		List<WebElement> productDetails = productsPageObject.getProductDetails();
+		assertTrue(productsPageObject.getProductName().isDisplayed());
+		assertTrue(productsPageObject.getProductCategory().isDisplayed());
+		assertTrue(productsPageObject.getProductPrice().isDisplayed());
+		assertTrue(productsPageObject.getProductAvailability().isDisplayed());
+		assertTrue(productsPageObject.getProductCondition().isDisplayed());
+		assertTrue(productsPageObject.getProductBrand().isDisplayed());
 
-		// Check if all product details elements are displayed
-		boolean areDetailsVisible = productDetails.stream().allMatch(WebElement::isDisplayed);
-		assertTrue(areDetailsVisible); // Assert that all elements are visible
 	}
 
 	// Call the method to scroll down to the bottom of the products page

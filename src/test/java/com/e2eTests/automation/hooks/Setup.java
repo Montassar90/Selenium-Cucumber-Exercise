@@ -23,7 +23,7 @@ public class Setup {
     	logger.info("Starting scenario: " + scenario.getName());
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--headless");
-        WebDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         // Maximizes the browser window for better visibility during testing
         driver.manage().window().maximize();
     }
