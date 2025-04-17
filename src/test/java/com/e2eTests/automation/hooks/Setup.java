@@ -4,7 +4,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import com.e2eTests.automation.utils.LoggerHelper;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -24,7 +23,7 @@ public class Setup {
     	logger.info("Starting scenario: " + scenario.getName());
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
         // Maximizes the browser window for better visibility during testing
         driver.manage().window().maximize();
     }

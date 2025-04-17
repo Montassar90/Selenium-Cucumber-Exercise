@@ -9,7 +9,7 @@ public class DeleteAccountStepDefinition {
 	// Declaring page object and configuration file reader instances
 	public DeleteAccountPageObject deleteAccountPageObject;
 	public ConfigFileReader configFileReader;
-	public SeleniumUtils seleniumUtils;;
+	public SeleniumUtils seleniumUtils;
 
 	// Constructor to initialize page object and config file reader
 	public DeleteAccountStepDefinition() {
@@ -18,7 +18,7 @@ public class DeleteAccountStepDefinition {
 		seleniumUtils = new SeleniumUtils();
 
 	}
-
+	
 	// Step definition for clicking on "Delete Account" link
 	@When("I click on the Delete Account link")
 	public void i_click_on_the_delete_account_link() {
