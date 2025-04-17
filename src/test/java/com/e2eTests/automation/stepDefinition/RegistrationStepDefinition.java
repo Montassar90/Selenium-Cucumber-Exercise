@@ -38,8 +38,8 @@ public class RegistrationStepDefinition {
 	// Step definition for entering the name and email in the signup form
 	@When("I enter name and email address")
 	public void iEnterNameAndEmailAddress() {
-		registrationPageObject.fillName(configFileReader.getProperties("name"));
-		registrationPageObject.fillEmail(configFileReader.getProperties("email"));
+		registrationPageObject.fillField(registrationPageObject.getNameInput(),configFileReader.getProperties("name"));
+		registrationPageObject.fillField(registrationPageObject.getEmailInput(),configFileReader.getProperties("email"));
 	}
 
 	// Step definition for clicking the "Signup" button
@@ -53,7 +53,15 @@ public class RegistrationStepDefinition {
 	@When("I fill the Signup form")
 	public void iFillTheSignupForm() {
 		registrationPageObject.selectTitle();
-		registrationPageObject.fillForm();
+		registrationPageObject.fillField(registrationPageObject.getPassword(), configFileReader.getProperties("password"));
+		registrationPageObject.fillField(registrationPageObject.getFirstName(), configFileReader.getProperties("firstName"));
+		registrationPageObject.fillField(registrationPageObject.getLastName(), configFileReader.getProperties("lastName"));
+		registrationPageObject.fillField(registrationPageObject.getCompany(), configFileReader.getProperties("company"));
+		registrationPageObject.fillField(registrationPageObject.getAddress(), configFileReader.getProperties("address"));
+		registrationPageObject.fillField(registrationPageObject.getState(), configFileReader.getProperties("state"));
+		registrationPageObject.fillField(registrationPageObject.getCity(), configFileReader.getProperties("city"));
+		registrationPageObject.fillField(registrationPageObject.getZipCode(), configFileReader.getProperties("zip"));
+		registrationPageObject.fillField(registrationPageObject.getMobileNumber(), configFileReader.getProperties("mobile"));
 		registrationPageObject.setBirthDate(configFileReader.getProperties("birthDay"),
 				configFileReader.getProperties("birthMonth"), configFileReader.getProperties("birthYear"));
 		registrationPageObject.selectCountry(configFileReader.getProperties("country"));

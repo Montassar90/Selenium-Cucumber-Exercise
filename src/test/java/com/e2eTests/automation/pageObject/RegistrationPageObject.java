@@ -123,16 +123,6 @@ public class RegistrationPageObject {
 		signupMenu.click();
 	}
 
-	// Fills the "Name" input field with the name from the configuration file
-	public void fillName(String userName) {
-		nameInput.sendKeys(userName);
-	}
-
-	// Fills the "Email" input field with the email from the configuration file
-	public void fillEmail(String email) {
-		emailInput.sendKeys(email);
-	}
-
 	// Opens the signup form by clicking the signup button
 	public void openSignupForm() {
 		signupButton.click();
@@ -146,20 +136,6 @@ public class RegistrationPageObject {
 	// Helper method: fills a given input field with the provided value
 	public void fillField(WebElement element, String value) {
 		element.sendKeys(value);
-	}
-
-	// Fills the entire form with the data from the configuration file
-	public void fillForm() {
-		fillField(password, configFileReader.getProperties("password"));
-		fillField(firstName, configFileReader.getProperties("firstName"));
-		fillField(lastName, configFileReader.getProperties("lastName"));
-		fillField(company, configFileReader.getProperties("company"));
-		fillField(address, configFileReader.getProperties("address"));
-		fillField(state, configFileReader.getProperties("state"));
-		fillField(city, configFileReader.getProperties("city"));
-		fillField(zipCode, configFileReader.getProperties("zip"));
-		fillField(mobileNumber, configFileReader.getProperties("mobile"));
-
 	}
 
 	// Helper method: selects a value from a dropdown element

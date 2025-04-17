@@ -1,6 +1,5 @@
 package com.e2eTests.automation.pageObject;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -81,19 +80,6 @@ public class ProductsPageObject {
 	public void navigateToProductDetails() {
 		((JavascriptExecutor) Setup.getDriver()).executeScript("arguments[0].scrollIntoView(true);", viewProductLink);
 		viewProductLink.click();
-	}
-
-	// Method to retrieve the details of the currently viewed product, including its
-	// name, category, price, availability, condition, and brand
-	public List<WebElement> getProductDetails() {
-		List<WebElement> productDetails = new ArrayList<>();
-		productDetails.add(productName);
-		productDetails.add(productCategory);
-		productDetails.add(productPrice);
-		productDetails.add(productAvailability);
-		productDetails.add(productCondition);
-		productDetails.add(productBrand);
-		return productDetails;
 	}
 
 }
